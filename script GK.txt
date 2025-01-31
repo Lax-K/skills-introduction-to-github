@@ -1,0 +1,27 @@
+do { # Prompt the user to enter the total amount
+$totalAmount = Read-Host "Enter the total amount:"
+
+# Prompt the user to enter the tip percentage
+$tipPercentage = Read-Host "Enter the tip percentage (without the % sign):"
+
+# Convert the inputs to numerical types
+$totalAmount = [double]$totalAmount
+$tipPercentage = [double]$tipPercentage
+
+# Convert the tip percentage to a decimal value
+$tipPercentageDecimal = $tipPercentage / 100
+
+# Calculate the tip amount
+$tipAmount = $totalAmount * $tipPercentageDecimal
+
+# Calculate the total amount including tip
+$totalWithTip = $totalAmount + $tipAmount
+
+# Output the results
+Write-Host "Tip Percentage: $tipPercentage%"
+Write-Host "Tip Amount: $tipAmount"
+Write-Host "Total Amount with Tip: $totalWithTip"
+
+# Prompt the user if they want to continue
+    $response = Read-Host "Do you want to continue? [Y/N]"
+} while ($response -ne 'N')
